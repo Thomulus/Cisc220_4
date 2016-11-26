@@ -2,10 +2,12 @@
 #include <stdlib.h>
 #include <string.h>
 int main() {
+	int first = 1;
 	int Dim11,Dim12,Dim21,Dim22;
 	printf("Insert matrix 1 dimensions separated by a space: ");
 	scanf("%d",&Dim11);
 	scanf("%d",&Dim12);
+	while(1){
 	while(1){
 		printf("Insert matrix 2 dimensions seperated by a space: ");
 		scanf("%d",&Dim21);
@@ -20,16 +22,17 @@ int main() {
 		fprintf(stderr, "Dimensions Mismatch");
 		printf("\n");
 	}
-	printf("%d,%d,%d,%d", Dim11,Dim12,Dim21,Dim22);
-	int Matrix1[Dim11][Dim12];
+	int Matrix1[10][10];
+	if (first){
 	printf("Input matrix 1 elements seperated by spaces: ");
 	for (int i=0; i< Dim11; i++){
 		for (int j=0; j<Dim12; j++){
 			scanf("%d", &Matrix1[i][j]);
 		}
 	}
+	}
 	int Matrix2[Dim21][Dim22];
-	printf("Input matrix 2 elements seperated by scapes: ");
+	printf("Input matrix 2 elements seperated by spaces: ");
 	for (int i=0; i< Dim21; i++){
 		for (int j=0; j<Dim22; j++){
 			scanf("%d", &Matrix2[i][j]);
@@ -48,6 +51,7 @@ int main() {
 		}
 		printf("\n");
 	}
+	
 	printf("\n");
 	printf("Matrix 2:\n");
 	for (int i =0; i<Dim21; i++){
@@ -78,8 +82,12 @@ int main() {
 	for (int i =0; i< Dim11; i++){
 		for (int j =0; j<Dim22; j++){
 			printf("%6d", Matrix3[i][j]);
+			Matrix1[i][j] =Matrix3[i][j];
 		}
 		printf("\n");
+	}
+	first =0;
+	Dim12 = Dim22;
 	}
 	return 0;
 }
